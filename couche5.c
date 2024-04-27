@@ -183,7 +183,7 @@ void ch_mod(virtual_disk_t *vdisk, char *filename, int right, int userid){
     inode_t *inode = &(vdisk->inodes[i]);
     if (userid == inode->uid){
       inode->oright = right;
-      printf("Les droits ont bien été mis à jours\n");
+      printf("Les droits ont bien été mis à jour\n");
     } else{
       printf("Seul le propriétaire du fichier peut modifier ses droits\n");
     }
@@ -263,7 +263,18 @@ void ui(char* la){
 
 void interprete(virtual_disk_t *vdisk,int userid){
   char cmd[100];
-  printf("Terminal prêt\n");
+  printf("Initializing Mamoudzou-Tunis OS 1.0 ...\n");
+  sleep(1);
+  printf("Initializing Mamoudzou-Tunis OS 1.0 ...\n");
+  sleep(1);
+  printf("Initializing Mamoudzou-Tunis OS 1.0 ...\n");
+  sleep(1);
+  printf("Initializing Mamoudzou-Tunis OS 1.0 ...\n");
+  sleep(1);
+  printf("Almost there ...\n");
+
+
+  printf("Terminal ready\n");
   printf("%s$ ", vdisk->users_table[userid].login);
   fgets (cmd, 100, stdin);
   ui(cmd);
@@ -345,7 +356,7 @@ void interprete(virtual_disk_t *vdisk,int userid){
           }
         }
         else{
-           fprintf(stderr,"pas assez d'arguments(login et fichier manquants)\n");
+           fprintf(stderr,"pas assez d'arguments(nom fichier et nom de l'utilisateur)\n");
         }
       }
 
@@ -404,9 +415,9 @@ int main(int argc, char *argv[]){
   char login[FILENAME_MAX_SIZE];
   char password[FILENAME_MAX_SIZE];
   int nbre_tentatives=1;
-  printf("Entrez login: \n");
+  printf("Enter login: \n");
   scanf("%s",login);
-  printf("Entrez mot de passe: \n");
+  printf("Enter password: \n");
   scanf("%s",password);
   fgetc(stdin);
   bool connexionreussie=false;
@@ -415,24 +426,24 @@ int main(int argc, char *argv[]){
     nbre_tentatives+=verificationLogin(login,password,vdisk);
     if(temoin==nbre_tentatives){
       connexionreussie=true;
-      printf("\nConnexion réussie\n");
+      printf("\nConnection successful\n");
       int userid=search_user(vdisk, login);
       interprete(vdisk,userid);
       break;
     }
     else{
-      printf("Incorrect, réessayez \n");
-      printf("Entrez login: \n");
+      printf("Incorrect, retry \n");
+      printf("Enter login: \n");
       scanf("%s",login);
-      printf("Entrez mot de passe: \n");
+      printf("Enter password: \n");
       scanf("%s",password);
       fgetc(stdin);
     }
 
   }
   if(!connexionreussie){
-    printf("\nIdentifiant / Mot de passe inconnus \n");
-    printf("Fin de la session\n");
+    printf("\nLogin / Password not recognized \n");
+    printf("End of session\n");
     return -1;
   }
   else return 1;
