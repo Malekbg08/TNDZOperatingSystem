@@ -5,8 +5,14 @@
 ## Project setup
 
 1- Run `make` to format the File System
+
+
 2- Run `./setup .` to execute the setup file and install the system
+
+
 3- Run `./exe .` to execute the exe file and launch the system.
+
+
 (Please note that your login is "root", this will be required when attempting to connect)
 
 
