@@ -38,10 +38,3 @@ Run `rmuser <user_name>` to remove a user from the system
 
 Run `listusers` to display every user of the system
 
-#Import, please read carefully
-
-Please note that the airport config default file is `jsondatacdg.json' and the scenario default file is `scenarito.json`
-
-You can see how these files have been written to understand better the overall functioning 
-
-Please note that you will have to scroll down a little after importing `jsondatacdg.json` (due to a graphical issue, the graph is not centered)
